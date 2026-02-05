@@ -174,6 +174,15 @@ class REST_Endpoint {
 			);
 		}
 
+		// Check if post type supports translations.
+		if ( ! pll_is_translated_post_type( $source_post->post_type ) ) {
+			return new WP_Error(
+				'invalid_post_type',
+				__( 'This post type does not support translations.', 'polylang-retranslate' ),
+				array( 'status' => 400 )
+			);
+		}
+
 		// Get the target language object.
 		$target_language = PLL()->model->get_language( $target_lang_slug );
 
