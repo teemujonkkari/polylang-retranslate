@@ -6,11 +6,20 @@
  * @since 1.0.0
  */
 
+namespace WP_Syntex\Polylang_Retranslate;
+
 defined( 'ABSPATH' ) || exit;
 
-use WP_Syntex\Polylang_Pro\Modules\Machine_Translation\Factory;
+use PLL_Base;
+use WP_Error;
+use WP_REST_Request;
+use WP_REST_Response;
+use WP_REST_Server;
+use PLL_Export_Container;
+use PLL_Export_Data_From_Posts;
 use WP_Syntex\Polylang_Pro\Modules\Machine_Translation\Processor;
 use WP_Syntex\Polylang_Pro\Modules\Machine_Translation\Data;
+use WP_Syntex\Polylang_Pro\Modules\Machine_Translation\Services\Service_Interface;
 
 /**
  * REST API endpoint class for re-translating posts.
@@ -20,7 +29,7 @@ use WP_Syntex\Polylang_Pro\Modules\Machine_Translation\Data;
  *
  * @since 1.0.0
  */
-class PLL_Retranslate_REST_Endpoint {
+class REST_Endpoint {
 
 	/**
 	 * REST API namespace.
@@ -34,7 +43,7 @@ class PLL_Retranslate_REST_Endpoint {
 	 * Polylang instance.
 	 *
 	 * @since 1.0.0
-	 * @var object
+	 * @var PLL_Base
 	 */
 	private $polylang;
 
@@ -42,7 +51,7 @@ class PLL_Retranslate_REST_Endpoint {
 	 * Active machine translation service.
 	 *
 	 * @since 1.0.0
-	 * @var object
+	 * @var Service_Interface
 	 */
 	private $service;
 
@@ -51,10 +60,10 @@ class PLL_Retranslate_REST_Endpoint {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param object $polylang The Polylang instance.
-	 * @param object $service  The active machine translation service.
+	 * @param PLL_Base          $polylang The Polylang instance.
+	 * @param Service_Interface $service  The active machine translation service.
 	 */
-	public function __construct( $polylang, $service ) {
+	public function __construct( PLL_Base $polylang, Service_Interface $service ) {
 		$this->polylang = $polylang;
 		$this->service  = $service;
 	}

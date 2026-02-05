@@ -153,7 +153,7 @@ class PLL_Retranslate {
 	 */
 	public function register_rest_endpoint(): void {
 		require_once PLL_RETRANSLATE_DIR . 'includes/class-rest-endpoint.php';
-		$endpoint = new PLL_Retranslate_REST_Endpoint( $this->polylang, $this->service );
+		$endpoint = new \WP_Syntex\Polylang_Retranslate\REST_Endpoint( $this->polylang, $this->service );
 		$endpoint->register();
 	}
 
