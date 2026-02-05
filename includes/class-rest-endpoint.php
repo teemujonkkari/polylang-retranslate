@@ -191,12 +191,27 @@ class REST_Endpoint {
 
 		// Check if post type supports translations.
 		if ( ! \pll_is_translated_post_type( $source_post->post_type ) ) {
+			$this->log( sprintf(
+				'Translation rejected: post type "%s" not translatable (post ID: %d)',
+				$source_post->post_type,
+				$source_post->ID
+			) );
 			return new WP_Error(
 				'invalid_post_type',
 				__( 'This post type does not support translations.', 'polylang-retranslate' ),
 				array( 'status' => 400 )
 			);
 		}
+
+		$user_id = get_current_user_id();
+		$this->log( sprintf(
+			'Re-translation started: user #%d, source post #%d ("%s") -> %s (target post #%d)',
+			$user_id,
+			$source_post->ID,
+			$source_post->post_title,
+			$target_language->slug,
+			$tr_id
+		) );
 
 		// Create the processor using the already validated service from constructor.
 		$processor = new Processor( \PLL(), $this->service->get_client() );
@@ -219,6 +234,12 @@ class REST_Endpoint {
 		$translate_result = $processor->translate( $container );
 
 		if ( $translate_result->has_errors() ) {
+			$this->log( sprintf(
+				'Re-translation failed: post #%d -> %s, error: %s',
+				$source_post->ID,
+				$target_language->slug,
+				$translate_result->get_error_message()
+			) );
 			return new WP_Error(
 				'translation_failed',
 				sprintf(
@@ -236,6 +257,12 @@ class REST_Endpoint {
 		$save_result = $processor->save( $container );
 
 		if ( $save_result->has_errors() ) {
+			$this->log( sprintf(
+				'Re-translation save failed: post #%d -> %s, error: %s',
+				$source_post->ID,
+				$target_language->slug,
+				$save_result->get_error_message()
+			) );
 			return new WP_Error(
 				'save_failed',
 				sprintf(
@@ -247,6 +274,14 @@ class REST_Endpoint {
 			);
 		}
 
+		$this->log( sprintf(
+			'Re-translation completed: post #%d -> %s (post #%d) by user #%d',
+			$source_post->ID,
+			$target_language->slug,
+			$tr_id,
+			$user_id
+		) );
+
 		// Return success response.
 		return rest_ensure_response(
 			array(
@@ -255,5 +290,19 @@ class REST_Endpoint {
 				'post_title' => get_the_title( $tr_id ),
 			)
 		);
+	}
+
+	/**
+	 * Logs a message to the debug log if WP_DEBUG is enabled.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $message The message to log.
+	 * @return void
+	 */
+	private function log( string $message ): void {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			error_log( '[Polylang Re-translate] ' . $message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		}
 	}
 }
