@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Polylang Re-translate
- * Plugin URI: https://polylang.pro
+ * Plugin URI: https://github.com/teemujonkkari/polylang-retranslate
  * Description: Adds a Re-translate panel to the block editor for re-translating existing translations using DeepL.
  * Version: 1.0.0
- * Author: WP FLAVOR
- * Author URI: https://polylang.pro
+ * Author: Teemu Jonkkari
+ * Author URI: https://github.com/teemujonkkari
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: polylang-retranslate
