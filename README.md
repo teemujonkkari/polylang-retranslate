@@ -149,6 +149,9 @@ The plugin currently does not provide custom hooks or filters. It integrates wit
 
 ## Changelog
 
+### 1.1.1
+- Fix: keep plugin name in English in Finnish translation
+
 ### 1.1.0
 - Add "Re-translate All" button for bulk translation
 - Add external link icon to open translation editor in new tab
