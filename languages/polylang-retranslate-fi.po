@@ -59,6 +59,22 @@ msgstr "Yritä uudelleen"
 msgid "(no title)"
 msgstr "(ei otsikkoa)"
 
+#: js/retranslate-panel.js
+msgid "Re-translate All"
+msgstr "Käännä kaikki uudelleen"
+
+#: js/retranslate-panel.js
+msgid "Re-translate all %d translations? This will overwrite all existing translation content."
+msgstr "Käännetäänkö kaikki %d käännöstä uudelleen? Tämä ylikirjoittaa kaikkien käännösten sisällön."
+
+#: js/retranslate-panel.js
+msgid "Translating %1$d / %2$d..."
+msgstr "Käännetään %1$d / %2$d..."
+
+#: js/retranslate-panel.js
+msgid "All translations updated!"
+msgstr "Kaikki käännökset päivitetty!"
+
 #: includes/class-rest-endpoint.php
 msgid "The ID of the source post to translate from."
 msgstr "Lähdeartikkelin ID josta käännetään."

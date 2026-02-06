@@ -21,9 +21,22 @@
 	var useDispatch = wp.data.useDispatch;
 	var apiFetch = wp.apiFetch;
 	var __ = wp.i18n.__;
+	var sprintf = wp.i18n.sprintf;
 
 	// Get default language from PHP (pll_default_language()).
 	var defaultLanguage = window.pllRetranslateSettings?.defaultLanguage || '';
+
+	/**
+	 * Helper function to create a delay.
+	 *
+	 * @param {number} ms Milliseconds to delay.
+	 * @return {Promise} Promise that resolves after the delay.
+	 */
+	function delay( ms ) {
+		return new Promise( function( resolve ) {
+			setTimeout( resolve, ms );
+		} );
+	}
 
 	/**
 	 * Re-translate Panel Component.
@@ -59,6 +72,12 @@
 		var states = stateHook[ 0 ];
 		var setStates = stateHook[ 1 ];
 
+		// State for tracking "translate all" progress.
+		// null = idle, { current: 1, total: 3 } = in progress
+		var allProgressHook = useState( null );
+		var allProgress = allProgressHook[ 0 ];
+		var setAllProgress = allProgressHook[ 1 ];
+
 		// Only show panel for posts in the default language.
 		if ( ! currentLang || currentLang !== defaultLanguage ) {
 			return null;
@@ -91,7 +110,7 @@
 		}
 
 		/**
-		 * Handles the re-translate button click.
+		 * Handles the re-translate button click for a single language.
 		 *
 		 * @since 1.0.0
 		 *
@@ -109,13 +128,27 @@
 				return;
 			}
 
+			translateSingleLanguage( langSlug );
+		}
+
+		/**
+		 * Translates a single language without confirmation.
+		 *
+		 * @since 1.1.0
+		 *
+		 * @param {string} langSlug The target language slug.
+		 * @return {Promise} Promise that resolves when translation is complete.
+		 */
+		function translateSingleLanguage( langSlug ) {
 			// Set loading state.
-			var newStates = Object.assign( {}, states );
-			newStates[ langSlug ] = 'loading';
-			setStates( newStates );
+			setStates( function( prevStates ) {
+				var newStates = Object.assign( {}, prevStates );
+				newStates[ langSlug ] = 'loading';
+				return newStates;
+			} );
 
 			// Make API request.
-			apiFetch( {
+			return apiFetch( {
 				path: '/pll-retranslate/v1/translate',
 				method: 'POST',
 				data: {
@@ -124,28 +157,89 @@
 				}
 			} ).then( function( response ) {
 				// Success.
-				var successStates = Object.assign( {}, states );
-				successStates[ langSlug ] = 'success';
-				setStates( successStates );
+				setStates( function( prevStates ) {
+					var newStates = Object.assign( {}, prevStates );
+					newStates[ langSlug ] = 'success';
+					return newStates;
+				} );
 
 				notices.createSuccessNotice(
 					/* translators: %s: post title */
 					__( 'Translation updated: ', 'polylang-retranslate' ) + response.post_title,
 					{ type: 'snackbar' }
 				);
+
+				return true;
 			} ).catch( function( error ) {
 				// Error.
-				var errorStates = Object.assign( {}, states );
-				errorStates[ langSlug ] = 'error';
-				setStates( errorStates );
+				setStates( function( prevStates ) {
+					var newStates = Object.assign( {}, prevStates );
+					newStates[ langSlug ] = 'error';
+					return newStates;
+				} );
 
 				notices.createErrorNotice(
 					/* translators: %s: error message */
 					__( 'Translation failed: ', 'polylang-retranslate' ) + ( error.message || __( 'Unknown error', 'polylang-retranslate' ) ),
 					{ type: 'snackbar' }
 				);
+
+				return false;
 			} );
 		}
+
+		/**
+		 * Handles the "Re-translate All" button click.
+		 *
+		 * @since 1.1.0
+		 *
+		 * @return {void}
+		 */
+		function handleRetranslateAll() {
+			// Confirm before overwriting all.
+			var confirmMessage = sprintf(
+				/* translators: %d: number of translations */
+				__( 'Re-translate all %d translations? This will overwrite all existing translation content.', 'polylang-retranslate' ),
+				existingTranslations.length
+			);
+
+			if ( ! window.confirm( confirmMessage ) ) { // phpcs:ignore WordPress.JS.AlertDialogs.Confirm
+				return;
+			}
+
+			// Start sequential translation with delay.
+			( async function() {
+				var total = existingTranslations.length;
+
+				for ( var i = 0; i < total; i++ ) {
+					var tr = existingTranslations[ i ];
+
+					// Update progress.
+					setAllProgress( { current: i + 1, total: total } );
+
+					// Translate this language.
+					await translateSingleLanguage( tr.slug );
+
+					// Wait 2 seconds before next (except for last one).
+					if ( i < total - 1 ) {
+						await delay( 2000 );
+					}
+				}
+
+				// Done - clear progress.
+				setAllProgress( null );
+
+				notices.createSuccessNotice(
+					__( 'All translations updated!', 'polylang-retranslate' ),
+					{ type: 'snackbar' }
+				);
+			} )();
+		}
+
+		// Check if any translation is currently loading.
+		var isAnyLoading = Object.keys( states ).some( function( key ) {
+			return states[ key ] === 'loading';
+		} );
 
 		// Render the panel.
 		return el(
@@ -167,6 +261,48 @@
 				},
 				__( 'Re-translate existing translations using DeepL.', 'polylang-retranslate' )
 			),
+			// "Re-translate All" button.
+			el(
+				'div',
+				{
+					style: {
+						marginBottom: '12px'
+					}
+				},
+				allProgress
+					? el(
+						'div',
+						{
+							style: {
+								display: 'flex',
+								alignItems: 'center',
+								gap: '8px'
+							}
+						},
+						el( Spinner ),
+						el(
+							'span',
+							null,
+							sprintf(
+								/* translators: %1$d: current number, %2$d: total number */
+								__( 'Translating %1$d / %2$d...', 'polylang-retranslate' ),
+								allProgress.current,
+								allProgress.total
+							)
+						)
+					)
+					: el(
+						Button,
+						{
+							variant: 'primary',
+							onClick: handleRetranslateAll,
+							disabled: isAnyLoading,
+							style: { width: '100%', justifyContent: 'center' }
+						},
+						__( 'Re-translate All', 'polylang-retranslate' )
+					)
+			),
+			// Individual language buttons.
 			existingTranslations.map( function( tr ) {
 				var state = states[ tr.slug ] || 'idle';
 				var buttonLabel = __( 'Re-translate', 'polylang-retranslate' );
@@ -235,7 +371,7 @@
 								onClick: function() {
 									handleRetranslate( tr.slug );
 								},
-								disabled: state === 'loading'
+								disabled: isAnyLoading || allProgress !== null
 							},
 							buttonLabel
 						)

@@ -56,6 +56,22 @@ msgstr ""
 msgid "(no title)"
 msgstr ""
 
+#: js/retranslate-panel.js
+msgid "Re-translate All"
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Re-translate all %d translations? This will overwrite all existing translation content."
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Translating %1$d / %2$d..."
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "All translations updated!"
+msgstr ""
+
 #: includes/class-rest-endpoint.php
 msgid "The ID of the source post to translate from."
 msgstr ""
