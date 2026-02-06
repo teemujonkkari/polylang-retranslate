@@ -29,7 +29,7 @@ msgstr "Uudelleenkäännä"
 
 #: js/retranslate-panel.js
 msgid "Re-translate existing translations using DeepL."
-msgstr "Käännä olemassa olevat käännökset uudelleen DeepL:llä."
+msgstr "Käännä olemassa olevat käännökset uudelleen tekoälyn avulla."
 
 #: js/retranslate-panel.js
 msgid "Re-translate this translation? This will overwrite the current translation content."

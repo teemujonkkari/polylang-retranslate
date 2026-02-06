@@ -11,7 +11,7 @@
         "plural-forms": "nplurals=2; plural=(n != 1);"
       },
       "Re-translate": ["Uudelleenkäännä"],
-      "Re-translate existing translations using DeepL.": ["Käännä olemassa olevat käännökset uudelleen DeepL:llä."],
+      "Re-translate existing translations using DeepL.": ["Käännä olemassa olevat käännökset uudelleen tekoälyn avulla."],
       "Re-translate this translation? This will overwrite the current translation content.": ["Käännetäänkö uudelleen? Tämä ylikirjoittaa nykyisen käännöksen sisällön."],
       "Translation updated: ": ["Käännös päivitetty: "],
       "Translation failed: ": ["Käännös epäonnistui: "],
