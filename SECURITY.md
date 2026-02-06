@@ -22,4 +22,4 @@ If you discover a security vulnerability, please report it responsibly:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
+| 1.x.x   | :white_check_mark: |
