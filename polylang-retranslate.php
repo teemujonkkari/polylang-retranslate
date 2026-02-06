@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Polylang Re-translate
  * Plugin URI: https://github.com/teemujonkkari/polylang-retranslate
- * Description: Adds a Re-translate panel to the block editor for re-translating existing translations using DeepL.
+ * Description: Re-translate existing translations using DeepL directly from the block editor. Requires Polylang Pro with Machine Translation enabled.
  * Version: 1.0.0
  * Author: Teemu Jonkkari
  * Author URI: https://github.com/teemujonkkari

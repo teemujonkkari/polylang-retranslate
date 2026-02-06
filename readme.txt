@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Re-translate existing translations using DeepL machine translation directly from the block editor.
+Re-translate existing translations using DeepL directly from the block editor. Requires Polylang Pro with Machine Translation enabled.
 
 == Description ==
 
