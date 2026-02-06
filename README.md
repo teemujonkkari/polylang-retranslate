@@ -150,7 +150,8 @@ The plugin currently does not provide custom hooks or filters. It integrates wit
 ## Changelog
 
 ### 1.1.1
-- Fix: keep plugin name in English in Finnish translation
+- Keep plugin name in English across all translations
+- Exclude assets folder from release zip
 
 ### 1.1.0
 - Add "Re-translate All" button for bulk translation
