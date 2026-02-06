@@ -22,7 +22,8 @@
       "Re-translate All": ["Käännä kaikki uudelleen"],
       "Re-translate all %d translations? This will overwrite all existing translation content.": ["Käännetäänkö kaikki %d käännöstä uudelleen? Tämä ylikirjoittaa kaikkien käännösten sisällön."],
       "Translating %1$d / %2$d...": ["Käännetään %1$d / %2$d..."],
-      "All translations updated!": ["Kaikki käännökset päivitetty!"]
+      "All translations updated!": ["Kaikki käännökset päivitetty!"],
+      "Edit translation": ["Muokkaa käännöstä"]
     }
   }
 }

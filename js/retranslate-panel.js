@@ -337,14 +337,51 @@
 							}
 						},
 						el(
-							'strong',
+							'div',
 							{
 								style: {
-									display: 'block',
+									display: 'flex',
+									alignItems: 'center',
+									gap: '4px',
 									marginBottom: '2px'
 								}
 							},
-							tr.lang.name
+							el(
+								'strong',
+								null,
+								tr.lang.name
+							),
+							el(
+								'a',
+								{
+									href: '/wp-admin/post.php?post=' + tr.postId + '&action=edit',
+									target: '_blank',
+									rel: 'noopener noreferrer',
+									title: __( 'Edit translation', 'polylang-retranslate' ),
+									style: {
+										color: '#757575',
+										textDecoration: 'none',
+										display: 'inline-flex',
+										alignItems: 'center'
+									}
+								},
+								el(
+									'svg',
+									{
+										width: '12',
+										height: '12',
+										viewBox: '0 0 24 24',
+										fill: 'none',
+										stroke: 'currentColor',
+										strokeWidth: '2',
+										strokeLinecap: 'round',
+										strokeLinejoin: 'round'
+									},
+									el( 'path', { d: 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' } ),
+									el( 'polyline', { points: '15 3 21 3 21 9' } ),
+									el( 'line', { x1: '10', y1: '14', x2: '21', y2: '3' } )
+								)
+							)
 						),
 						el(
 							'span',

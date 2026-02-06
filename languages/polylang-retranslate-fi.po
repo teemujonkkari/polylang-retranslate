@@ -75,6 +75,10 @@ msgstr "Käännetään %1$d / %2$d..."
 msgid "All translations updated!"
 msgstr "Kaikki käännökset päivitetty!"
 
+#: js/retranslate-panel.js
+msgid "Edit translation"
+msgstr "Muokkaa käännöstä"
+
 #: includes/class-rest-endpoint.php
 msgid "The ID of the source post to translate from."
 msgstr "Lähdeartikkelin ID josta käännetään."

@@ -72,6 +72,10 @@ msgstr ""
 msgid "All translations updated!"
 msgstr ""
 
+#: js/retranslate-panel.js
+msgid "Edit translation"
+msgstr ""
+
 #: includes/class-rest-endpoint.php
 msgid "The ID of the source post to translate from."
 msgstr ""
