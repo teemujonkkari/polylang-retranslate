@@ -359,7 +359,7 @@
 									rel: 'noopener noreferrer',
 									title: __( 'Edit translation', 'polylang-retranslate' ),
 									style: {
-										color: '#757575',
+										color: '#0073aa',
 										textDecoration: 'none',
 										display: 'inline-flex',
 										alignItems: 'center'
