@@ -62,10 +62,6 @@ Yes. Re-translating will replace the current translation content with a fresh ma
 
 It works with any post type that has translation support enabled in Polylang settings.
 
-== Screenshots ==
-
-1. The Re-translate panel in the block editor sidebar with "Re-translate All" button and quick edit links
-
 == Changelog ==
 
 = 1.1.0 =
