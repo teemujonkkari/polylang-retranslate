@@ -4,7 +4,7 @@ Tags: polylang, translation, deepl, multilingual, machine-translation
 Requires at least: 6.2
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -63,6 +63,10 @@ Yes. Re-translating will replace the current translation content with a fresh ma
 It works with any post type that has translation support enabled in Polylang settings.
 
 == Changelog ==
+
+= 1.1.1 =
+* Keep plugin name in English across all translations
+* Exclude assets folder from release zip
 
 = 1.1.0 =
 * Add "Re-translate All" button for bulk translation

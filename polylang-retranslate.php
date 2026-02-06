@@ -3,7 +3,7 @@
  * Plugin Name: Polylang Re-translate
  * Plugin URI: https://github.com/teemujonkkari/polylang-retranslate
  * Description: Re-translate existing translations using DeepL directly from the block editor. Requires Polylang Pro with Machine Translation enabled.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Teemu Jonkkari
  * Author URI: https://github.com/teemujonkkari
  * License: GPL-3.0-or-later
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Plugin constants.
  */
-define( 'PLL_RETRANSLATE_VERSION', '1.1.0' );
+define( 'PLL_RETRANSLATE_VERSION', '1.1.1' );
 define( 'PLL_RETRANSLATE_FILE', __FILE__ );
 define( 'PLL_RETRANSLATE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PLL_RETRANSLATE_URL', plugin_dir_url( __FILE__ ) );
