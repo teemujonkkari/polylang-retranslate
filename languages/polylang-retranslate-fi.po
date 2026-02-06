@@ -1,0 +1,100 @@
+# Finnish translation for Polylang Re-translate
+# Copyright (C) 2024 Teemu Jonkkari
+# This file is distributed under the GPL-3.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Polylang Re-translate 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/teemujonkkari/polylang-retranslate/issues\n"
+"POT-Creation-Date: 2024-02-05T00:00:00+00:00\n"
+"PO-Revision-Date: 2024-02-05T00:00:00+00:00\n"
+"Last-Translator: Teemu Jonkkari\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: polylang-retranslate.php
+msgid "Polylang Re-translate"
+msgstr "Polylang Uudelleenkäännös"
+
+#: polylang-retranslate.php
+msgid "This plugin requires %s to be installed and activated with Machine Translation enabled."
+msgstr "Tämä lisäosa vaatii %s asennettuna ja aktivoituna konekäännös käytössä."
+
+#: js/retranslate-panel.js
+msgid "Re-translate"
+msgstr "Uudelleenkäännä"
+
+#: js/retranslate-panel.js
+msgid "Re-translate existing translations using DeepL."
+msgstr "Käännä olemassa olevat käännökset uudelleen DeepL:llä."
+
+#: js/retranslate-panel.js
+msgid "Re-translate this translation? This will overwrite the current translation content."
+msgstr "Käännetäänkö uudelleen? Tämä ylikirjoittaa nykyisen käännöksen sisällön."
+
+#: js/retranslate-panel.js
+msgid "Translation updated: "
+msgstr "Käännös päivitetty: "
+
+#: js/retranslate-panel.js
+msgid "Translation failed: "
+msgstr "Käännös epäonnistui: "
+
+#: js/retranslate-panel.js
+msgid "Unknown error"
+msgstr "Tuntematon virhe"
+
+#: js/retranslate-panel.js
+msgid "Done"
+msgstr "Valmis"
+
+#: js/retranslate-panel.js
+msgid "Retry"
+msgstr "Yritä uudelleen"
+
+#: js/retranslate-panel.js
+msgid "(no title)"
+msgstr "(ei otsikkoa)"
+
+#: includes/class-rest-endpoint.php
+msgid "The ID of the source post to translate from."
+msgstr "Lähdeartikkelin ID josta käännetään."
+
+#: includes/class-rest-endpoint.php
+msgid "The target language slug."
+msgstr "Kohdekielen tunniste."
+
+#: includes/class-rest-endpoint.php
+msgid "You do not have permission to edit the source post."
+msgstr "Sinulla ei ole oikeutta muokata lähdeartikkelia."
+
+#: includes/class-rest-endpoint.php
+msgid "Source post not found."
+msgstr "Lähdeartikkelia ei löytynyt."
+
+#: includes/class-rest-endpoint.php
+msgid "Invalid target language."
+msgstr "Virheellinen kohdekieli."
+
+#: includes/class-rest-endpoint.php
+msgid "No existing translation found. This plugin only re-translates existing translations."
+msgstr "Käännöstä ei löytynyt. Tämä lisäosa uudelleenkääntää vain olemassa olevia käännöksiä."
+
+#: includes/class-rest-endpoint.php
+msgid "You do not have permission to edit the translation post."
+msgstr "Sinulla ei ole oikeutta muokata käännösartikkelia."
+
+#: includes/class-rest-endpoint.php
+msgid "This post type does not support translations."
+msgstr "Tämä sisältötyyppi ei tue käännöksiä."
+
+#: includes/class-rest-endpoint.php
+msgid "Translation failed: %s"
+msgstr "Käännös epäonnistui: %s"
+
+#: includes/class-rest-endpoint.php
+msgid "Failed to save translation: %s"
+msgstr "Käännöksen tallennus epäonnistui: %s"

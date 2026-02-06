@@ -1,0 +1,97 @@
+# Copyright (C) 2024 Teemu Jonkkari
+# This file is distributed under the GPL-3.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Polylang Re-translate 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/teemujonkkari/polylang-retranslate/issues\n"
+"POT-Creation-Date: 2024-02-05T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: polylang-retranslate.php
+msgid "Polylang Re-translate"
+msgstr ""
+
+#: polylang-retranslate.php
+msgid "This plugin requires %s to be installed and activated with Machine Translation enabled."
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Re-translate"
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Re-translate existing translations using DeepL."
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Re-translate this translation? This will overwrite the current translation content."
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Translation updated: "
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Translation failed: "
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Unknown error"
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Done"
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "Retry"
+msgstr ""
+
+#: js/retranslate-panel.js
+msgid "(no title)"
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "The ID of the source post to translate from."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "The target language slug."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "You do not have permission to edit the source post."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "Source post not found."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "Invalid target language."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "No existing translation found. This plugin only re-translates existing translations."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "You do not have permission to edit the translation post."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "This post type does not support translations."
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "Translation failed: %s"
+msgstr ""
+
+#: includes/class-rest-endpoint.php
+msgid "Failed to save translation: %s"
+msgstr ""
