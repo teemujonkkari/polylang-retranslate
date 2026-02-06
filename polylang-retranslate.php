@@ -100,10 +100,12 @@ class PLL_Retranslate {
 		?>
 		<div class="notice notice-error">
 			<p>
+				<strong><?php esc_html_e( 'Polylang Re-translate', 'polylang-retranslate' ); ?></strong>:
 				<?php
-				esc_html_e(
-					'Polylang Re-translate requires Polylang Pro to be installed and activated.',
-					'polylang-retranslate'
+				printf(
+					/* translators: %s: Polylang Pro link */
+					esc_html__( 'This plugin requires %s to be installed and activated with Machine Translation enabled.', 'polylang-retranslate' ),
+					'<a href="https://polylang.pro/" target="_blank" rel="noopener noreferrer">Polylang Pro</a>'
 				);
 				?>
 			</p>
