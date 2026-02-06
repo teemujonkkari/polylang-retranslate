@@ -79,6 +79,9 @@ class PLL_Retranslate {
 	 * @since 1.0.0
 	 */
 	private function __construct() {
+		// Load translations.
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+
 		// Check for Polylang Pro dependency.
 		if ( ! defined( 'POLYLANG_PRO' ) ) {
 			add_action( 'admin_notices', array( $this, 'admin_notice_missing_dependency' ) );
@@ -87,6 +90,21 @@ class PLL_Retranslate {
 
 		// Initialize after Polylang Pro is fully loaded (priority 20, after Pro modules at 0).
 		add_action( 'pll_init', array( $this, 'init' ), 20 );
+	}
+
+	/**
+	 * Loads the plugin text domain for translations.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function load_textdomain(): void {
+		load_plugin_textdomain(
+			'polylang-retranslate',
+			false,
+			dirname( plugin_basename( PLL_RETRANSLATE_FILE ) ) . '/languages'
+		);
 	}
 
 	/**
@@ -191,7 +209,7 @@ class PLL_Retranslate {
 			)
 		);
 
-		wp_set_script_translations( 'pll-retranslate', 'polylang-retranslate' );
+		wp_set_script_translations( 'pll-retranslate', 'polylang-retranslate', PLL_RETRANSLATE_DIR . 'languages' );
 	}
 
 	/**
