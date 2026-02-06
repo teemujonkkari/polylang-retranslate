@@ -4,7 +4,7 @@ Tags: polylang, translation, deepl, multilingual, machine-translation
 Requires at least: 6.2
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -64,6 +64,11 @@ It works with any post type that has translation support enabled in Polylang set
 1. The Re-translate panel in the block editor sidebar
 
 == Changelog ==
+
+= 1.0.1 =
+* Add Finnish translations
+* Improve dependency notice with Polylang Pro link
+* Fix translation loading for JavaScript strings
 
 = 1.0.0 =
 * Initial release

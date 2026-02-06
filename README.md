@@ -165,6 +165,11 @@ The plugin currently does not provide custom hooks or filters. It integrates wit
 
 ## Changelog
 
+### 1.0.1
+- Add Finnish translations
+- Improve dependency notice with Polylang Pro link
+- Fix translation loading for JavaScript strings
+
 ### 1.0.0
 - Initial release
 - Block editor Re-translate panel
