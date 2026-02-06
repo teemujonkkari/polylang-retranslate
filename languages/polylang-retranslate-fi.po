@@ -17,7 +17,7 @@ msgstr ""
 
 #: polylang-retranslate.php
 msgid "Polylang Re-translate"
-msgstr "Polylang Uudelleenkäännös"
+msgstr "Polylang Re-translate"
 
 #: polylang-retranslate.php
 msgid "This plugin requires %s to be installed and activated with Machine Translation enabled."
