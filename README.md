@@ -45,37 +45,21 @@ This is particularly useful when:
 ## Features
 
 - **Block Editor Integration**: Native sidebar panel in Gutenberg
+- **Re-translate All**: Bulk re-translate all languages with one click (sequential with 2s delay)
 - **Per-Language Control**: Re-translate individual languages independently
+- **Quick Edit Links**: Open translation editor directly in a new tab
 - **Status Feedback**: Visual indicators for loading, success, and error states
 - **Confirmation Dialog**: Prevents accidental overwrites
 - **Permission Checks**: Respects WordPress capabilities (edit_post)
 - **Post Type Support**: Only works with Polylang-enabled post types
 - **Debug Logging**: Optional logging for troubleshooting (when WP_DEBUG is enabled)
+- **Translations**: Finnish language support included
 
-## Screenshots
+## Screenshot
 
-The Re-translate panel appears in the block editor sidebar:
+The Re-translate panel in the block editor sidebar:
 
-```
-┌─────────────────────────────┐
-│ Re-translate                │
-├─────────────────────────────┤
-│ Re-translate existing       │
-│ translations using DeepL.   │
-│                             │
-│ ┌─────────────────────────┐ │
-│ │ English                 │ │
-│ │ Meeting Minutes         │ │
-│ │            [Re-translate]│ │
-│ └─────────────────────────┘ │
-│                             │
-│ ┌─────────────────────────┐ │
-│ │ Swedish                 │ │
-│ │ Mötesprotokoll          │ │
-│ │            [Re-translate]│ │
-│ └─────────────────────────┘ │
-└─────────────────────────────┘
-```
+![Re-translate Panel](assets/screenshot.png)
 
 ## REST API
 
@@ -165,6 +149,12 @@ The plugin currently does not provide custom hooks or filters. It integrates wit
 
 ## Changelog
 
+### 1.1.0
+- Add "Re-translate All" button for bulk translation
+- Add external link icon to open translation editor in new tab
+- Sequential translation with 1 second delay to avoid API rate limits
+- Progress indicator for bulk translations
+
 ### 1.0.1
 - Add Finnish translations
 - Improve dependency notice with Polylang Pro link
@@ -189,7 +179,9 @@ polylang-retranslate/
 │   └── class-rest-endpoint.php # REST API endpoint
 ├── js/
 │   └── retranslate-panel.js    # Block editor panel
-├── languages/                   # Translation files (empty)
+├── languages/                   # Translation files
+├── assets/
+│   └── screenshot.png          # Plugin screenshot
 └── README.md                    # This file
 ```
 

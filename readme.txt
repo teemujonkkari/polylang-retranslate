@@ -4,7 +4,7 @@ Tags: polylang, translation, deepl, multilingual, machine-translation
 Requires at least: 6.2
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,12 +22,15 @@ Polylang Re-translate extends Polylang Pro by adding a "Re-translate" panel to t
 
 **Features:**
 
+* **Re-translate All** - Bulk re-translate all languages with one click
 * **Block Editor Integration** - Native sidebar panel in Gutenberg
 * **Per-Language Control** - Re-translate individual languages independently
+* **Quick Edit Links** - Open translation editor directly in a new tab
 * **Status Feedback** - Visual indicators for loading, success, and error states
 * **Confirmation Dialog** - Prevents accidental overwrites
 * **Permission Checks** - Respects WordPress capabilities
 * **Debug Logging** - Optional logging when WP_DEBUG is enabled
+* **Translations** - Finnish language support included
 
 **Requirements:**
 
@@ -61,9 +64,15 @@ It works with any post type that has translation support enabled in Polylang set
 
 == Screenshots ==
 
-1. The Re-translate panel in the block editor sidebar
+1. The Re-translate panel in the block editor sidebar with "Re-translate All" button and quick edit links
 
 == Changelog ==
+
+= 1.1.0 =
+* Add "Re-translate All" button for bulk translation
+* Add external link icon to open translation editor in new tab
+* Sequential translation with 1 second delay to avoid API rate limits
+* Progress indicator for bulk translations
 
 = 1.0.1 =
 * Add Finnish translations
@@ -79,6 +88,9 @@ It works with any post type that has translation support enabled in Polylang set
 * Performance optimization (query caching)
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+New feature: Re-translate all languages at once with the new bulk translation button.
 
 = 1.0.0 =
 Initial release.

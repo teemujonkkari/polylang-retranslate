@@ -220,9 +220,9 @@
 					// Translate this language.
 					await translateSingleLanguage( tr.slug );
 
-					// Wait 2 seconds before next (except for last one).
+					// Wait 1 second before next (except for last one).
 					if ( i < total - 1 ) {
-						await delay( 2000 );
+						await delay( 1000 );
 					}
 				}
 
